@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
-import java.util.List;
 
 /**
  * @author Luis Riveros - luis.riveros_ex@scotiabank.cl
@@ -21,14 +20,13 @@ import java.util.List;
  */
 @RestController
 @RequestMapping(value = "/user")
-public class UserController {
+public class UserController extends AbstractController {
 
     @PostMapping(value = "/", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Object> addPeople(@RequestBody @Valid User people, Errors errors) {
 
         if (errors.hasErrors()) {
-            List<String> v = UserValidator.build().validate(people);
-            return new ResponseEntity<>(v, HttpStatus.BAD_REQUEST);
+            return errorRequest(UserValidator.build().validate(people));
         }
 
         return new ResponseEntity<>(true, HttpStatus.CREATED);
