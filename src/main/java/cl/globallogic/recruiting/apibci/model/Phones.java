@@ -2,6 +2,8 @@ package cl.globallogic.recruiting.apibci.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.validation.constraints.NotEmpty;
 
 /**
@@ -9,8 +11,10 @@ import javax.validation.constraints.NotEmpty;
  * @version 1.0.0 - 02-12-2019
  * @since 1.0.0 - 02-12-2019
  */
+@Entity(name = "Phones")
 public class Phones {
     @NotEmpty
+    @Id
     private String number;
 
     @NotEmpty

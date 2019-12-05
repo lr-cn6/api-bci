@@ -1,25 +1,31 @@
 package cl.globallogic.recruiting.apibci.service;
 
 import cl.globallogic.recruiting.apibci.model.User;
-
-import java.util.UUID;
+import cl.globallogic.recruiting.apibci.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  * @author Luis Riveros - luis.riveros_ex@scotiabank.cl
  * @version 1.0.0 - 03-12-2019
  * @since 1.0.0 - 03-12-2019
  */
+@Service
 public class UserServiceImpl implements UserService {
 
-    @Override
-    public User getPeopleRs(UUID id) {
+    @Autowired
+    private UserRepository userRepository;
 
+    @Override
+    public User getUserRs(String id) {
+        User u = userRepository.findByUser(id);
         return null;
     }
 
     @Override
-    public Boolean addPeople(User p) {
+    public void addUser(User p) {
 
-        return null;
+        userRepository.save(p);
+
     }
 }

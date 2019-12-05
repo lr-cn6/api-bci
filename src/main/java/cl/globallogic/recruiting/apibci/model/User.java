@@ -1,25 +1,27 @@
 package cl.globallogic.recruiting.apibci.model;
 
-import cl.globallogic.recruiting.apibci.model.Phones;
 import cl.globallogic.recruiting.apibci.model.validator.ValidPassword;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import java.time.LocalDate;
 import java.util.List;
-import java.util.UUID;
 
 /**
  * @author Luis Riveros - luis.riveros_ex@scotiabank.cl
  * @version 1.0.0 - 02-12-2019
  * @since 1.0.0 - 02-12-2019
  */
+@Entity(name = "User")
 public class User {
 
     @Id
-    private UUID id;
+    private String id;
 
     @NotEmpty
     private String name;
@@ -43,14 +45,18 @@ public class User {
     @JsonProperty("isactive")
     private boolean isActive;
 
+    @OneToMany(
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
     private List<Phones> phones;
 
 
-    public UUID getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(String id) {
         this.id = id;
     }
 

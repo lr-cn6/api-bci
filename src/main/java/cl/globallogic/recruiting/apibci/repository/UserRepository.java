@@ -1,5 +1,7 @@
 package cl.globallogic.recruiting.apibci.repository;
 
+import cl.globallogic.recruiting.apibci.model.User;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -8,6 +10,8 @@ import org.springframework.stereotype.Repository;
  * @since 1.0.0 - 03-12-2019
  */
 @Repository
-public interface UserRepository {
+public interface UserRepository extends CrudRepository<User, String> {
+
+    User findByUser(String id);
 
 }

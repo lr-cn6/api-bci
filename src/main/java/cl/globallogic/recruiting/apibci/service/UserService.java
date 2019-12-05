@@ -2,8 +2,6 @@ package cl.globallogic.recruiting.apibci.service;
 
 import cl.globallogic.recruiting.apibci.model.User;
 
-import java.util.UUID;
-
 /**
  * @author Luis Riveros - luis.riveros_ex@scotiabank.cl
  * @version 1.0.0 - 03-12-2019
@@ -11,7 +9,7 @@ import java.util.UUID;
  */
 public interface UserService {
 
-    public User getPeopleRs(UUID id);
+    public User getUserRs(String id);
 
-    public Boolean addPeople(User p);
+    public void addUser(User p);
 }
