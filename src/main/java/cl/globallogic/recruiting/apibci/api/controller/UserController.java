@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.validation.Valid;
 
 /**
- * @author Luis Riveros - luis.riveros_ex@scotiabank.cl
+ * @author Luis Riveros - lc.riverosd@gmail.com
  * @version 1.0.0 - 02-12-2019
  * @since 1.0.0 - 02-12-2019
  */

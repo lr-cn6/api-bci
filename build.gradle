@@ -21,7 +21,7 @@ dependencies {
 
 	compile group: 'org.passay', name: 'passay', version: '1.5.0'
 
-	testCompile group: 'com.h2database', name: 'h2', version: '1.4.197'
+	runtimeOnly group: 'com.h2database', name: 'h2', version: '1.4.197'
 }
 
 test {

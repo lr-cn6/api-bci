@@ -13,11 +13,11 @@ import java.time.LocalDate;
 import java.util.List;
 
 /**
- * @author Luis Riveros - luis.riveros_ex@scotiabank.cl
+ * @author Luis Riveros - lc.riverosd@gmail.com
  * @version 1.0.0 - 02-12-2019
  * @since 1.0.0 - 02-12-2019
  */
-@Entity(name = "User")
+@Entity
 public class User {
 
     @Id

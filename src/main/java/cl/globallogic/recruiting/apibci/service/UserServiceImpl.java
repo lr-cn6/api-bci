@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
- * @author Luis Riveros - luis.riveros_ex@scotiabank.cl
+ * @author Luis Riveros - lc.riverosd@gmail.com
  * @version 1.0.0 - 03-12-2019
  * @since 1.0.0 - 03-12-2019
  */
@@ -18,7 +18,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User getUserRs(String id) {
-        User u = userRepository.findByUser(id);
+        //User u = userRepository.findByUser(id);
         return null;
     }
 

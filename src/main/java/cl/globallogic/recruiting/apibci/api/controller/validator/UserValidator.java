@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * @author Luis Riveros - luis.riveros_ex@scotiabank.cl
+ * @author Luis Riveros - lc.riverosd@gmail.com
  * @version 1.0.0 - 03-12-2019
  * @since 1.0.0 - 03-12-2019
  */

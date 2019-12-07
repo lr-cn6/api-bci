@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotEmpty;
 
 /**
- * @author Luis Riveros - luis.riveros_ex@scotiabank.cl
+ * @author Luis Riveros - lc.riverosd@gmail.com
  * @version 1.0.0 - 02-12-2019
  * @since 1.0.0 - 02-12-2019
  */

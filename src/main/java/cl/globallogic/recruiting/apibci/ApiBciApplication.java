@@ -1,8 +1,10 @@
 package cl.globallogic.recruiting.apibci;
 
 import cl.globallogic.recruiting.apibci.model.User;
+import cl.globallogic.recruiting.apibci.repository.UserRepository;
 import cl.globallogic.recruiting.apibci.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,11 +14,10 @@ import java.time.LocalDate;
 import java.util.UUID;
 
 @SpringBootApplication(scanBasePackages = "cl.globallogic.recruiting.apibci")
-@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
-public class ApiBciApplication {
+public class ApiBciApplication implements CommandLineRunner {
 
     @Autowired
-    private UserServiceImpl userService;
+    private UserRepository userRepository;
 
     public static void main(String[] args) {
         SpringApplication.run(ApiBciApplication.class, args);
@@ -28,7 +29,9 @@ public class ApiBciApplication {
         u.setActive(true);
         u.setCreated(LocalDate.now());
         u.setName("admin");
-        u.setPassword("admin");
-        userService.addUser(u);
+        u.setPassword("Admin12");
+        u.setEmail("admin@bci.cl");
+        userRepository.save(u);
+
     }
 }
