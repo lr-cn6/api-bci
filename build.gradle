@@ -19,10 +19,16 @@ dependencies {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
 
+	//Password validator
 	compile group: 'org.passay', name: 'passay', version: '1.5.0'
 
+	//Jwt token
+	compile group: 'io.jsonwebtoken', name: 'jjwt', version: '0.9.1'
+
+	//Database
 	runtimeOnly group: 'com.h2database', name: 'h2', version: '1.4.197'
 
+	//Test
 	testCompile group: 'junit', name: 'junit', version: '4.12'
 }
 

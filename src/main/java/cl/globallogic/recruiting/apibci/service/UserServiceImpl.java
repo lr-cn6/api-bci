@@ -3,6 +3,7 @@ package cl.globallogic.recruiting.apibci.service;
 import cl.globallogic.recruiting.apibci.exception.ApiBciException;
 import cl.globallogic.recruiting.apibci.model.User;
 import cl.globallogic.recruiting.apibci.repository.UserRepository;
+import cl.globallogic.recruiting.apibci.security.JwtToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +21,9 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private JwtToken jwtToken;
+
     @Override
     public User getUserRs(String id) {
         return userRepository.findById(id).get();
@@ -32,6 +36,7 @@ public class UserServiceImpl implements UserService {
         p.setId(UUID.randomUUID().toString());
         p.setActive(true);
         try {
+            p.setToken(jwtToken.build(p));
             userRepository.save(p);
         }catch (Exception e){
             throw new ApiBciException(e);
