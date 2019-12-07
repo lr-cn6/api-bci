@@ -1,4 +1,4 @@
-package cl.globallogic.recruiting.apibci.model.validator;
+package cl.globallogic.recruiting.apibci.model.validator.password;
 
 import org.passay.*;
 

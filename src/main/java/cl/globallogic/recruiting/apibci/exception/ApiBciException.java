@@ -13,8 +13,8 @@ public class ApiBciException extends Exception {
         this.mensaje = mensaje;
     }
 
-    public ApiBciException(Throwable t) {
-        this.mensaje = t.getMessage();
+    public ApiBciException(Exception e) {
+        this.mensaje = e.getMessage();
     }
 
     public String getMensaje() {

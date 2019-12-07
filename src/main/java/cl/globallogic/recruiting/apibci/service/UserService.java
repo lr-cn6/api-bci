@@ -1,5 +1,6 @@
 package cl.globallogic.recruiting.apibci.service;
 
+import cl.globallogic.recruiting.apibci.exception.ApiBciException;
 import cl.globallogic.recruiting.apibci.model.User;
 
 /**
@@ -9,7 +10,7 @@ import cl.globallogic.recruiting.apibci.model.User;
  */
 public interface UserService {
 
-    public User getUserRs(String id);
+    public User getUserRs(String id) throws ApiBciException;
 
-    public void addUser(User p);
+    public User addUser(User p) throws ApiBciException;
 }

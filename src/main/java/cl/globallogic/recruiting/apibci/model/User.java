@@ -1,15 +1,13 @@
 package cl.globallogic.recruiting.apibci.model;
 
-import cl.globallogic.recruiting.apibci.model.validator.ValidPassword;
+import cl.globallogic.recruiting.apibci.model.validator.password.ValidPassword;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -18,6 +16,7 @@ import java.util.List;
  * @since 1.0.0 - 02-12-2019
  */
 @Entity
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class User {
 
     @Id
@@ -28,22 +27,23 @@ public class User {
 
     @NotEmpty
     @Email
+    @Column(unique = true)
     private String email;
 
     @ValidPassword
     private String password;
 
-    private LocalDate created;
+    private LocalDateTime created;
 
-    private LocalDate modified;
+    private LocalDateTime modified;
 
     @JsonProperty("last_login")
-    private LocalDate lastLogin;
+    private LocalDateTime lastLogin;
 
     private String token;
 
     @JsonProperty("isactive")
-    private boolean isActive;
+    private boolean active;
 
     @OneToMany(
             cascade = CascadeType.ALL,
@@ -51,6 +51,16 @@ public class User {
     )
     private List<Phones> phones;
 
+    @PrePersist
+    protected void onCreate() {
+        created = LocalDateTime.now();
+        lastLogin = LocalDateTime.now();
+    }
+
+    @PreUpdate
+    protected void onUpdate() {
+        modified = LocalDateTime.now();
+    }
 
     public String getId() {
         return id;
@@ -84,27 +94,27 @@ public class User {
         this.password = password;
     }
 
-    public LocalDate getCreated() {
+    public LocalDateTime getCreated() {
         return created;
     }
 
-    public void setCreated(LocalDate created) {
+    public void setCreated(LocalDateTime created) {
         this.created = created;
     }
 
-    public LocalDate getModified() {
+    public LocalDateTime getModified() {
         return modified;
     }
 
-    public void setModified(LocalDate modified) {
+    public void setModified(LocalDateTime modified) {
         this.modified = modified;
     }
 
-    public LocalDate getLastLogin() {
+    public LocalDateTime getLastLogin() {
         return lastLogin;
     }
 
-    public void setLastLogin(LocalDate lastLogin) {
+    public void setLastLogin(LocalDateTime lastLogin) {
         this.lastLogin = lastLogin;
     }
 
@@ -117,11 +127,11 @@ public class User {
     }
 
     public boolean isActive() {
-        return isActive;
+        return active;
     }
 
     public void setActive(boolean active) {
-        isActive = active;
+        this.active = active;
     }
 
     public List<Phones> getPhones() {
