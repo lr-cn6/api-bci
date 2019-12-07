@@ -4,6 +4,7 @@
 ## Table of contents
 * [General info](#general-info)
 * [Technologies](#technologies)
+* [Sequence](#sequence)
 * [Setup](#setup)
 * [Status](#status)
 * [How to Use](#how-to-use)
@@ -45,6 +46,9 @@ $ ./gradlew test
 ```shell script
 > gradlew.bat test
 ```
+
+## Sequence
+![Sequence Diagram](./assets/sequence.png)
 
 ## Status
 Project is: _in progress_
