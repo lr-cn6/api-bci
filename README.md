@@ -18,21 +18,33 @@ Users Api.
 * Spring Boot
 * JPA
 * H2 Database
+* JWT
 
 ## Setup
-This project contains a wrapper from Gradle, so you only need to clone and run:
-
-- Linux
+This project contains a wrapper from Gradle, so you only need to clone:
+### Run
+#### Linux
 ```shell script
 $ ./gradlew bootRun
 ```
 
-- Windows
+### Windows
 ```shell script
 > gradlew.bat bootRun
 ```
 
 _It runs on port 9090_
+
+### Test
+#### Linux
+```shell script
+$ ./gradlew test
+```
+
+### Windows
+```shell script
+> gradlew.bat test
+```
 
 ## Status
 Project is: _in progress_
