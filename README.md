@@ -1,4 +1,4 @@
-# GlobalLogic Api
+# Api
 > A Recruiting api from global logic
 
 ## Table of contents
